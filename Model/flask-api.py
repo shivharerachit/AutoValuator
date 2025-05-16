@@ -151,8 +151,21 @@ def generate_combined_response(input_data):
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})
 
-@app.route('/process_car', methods=['POST'])
+@app.route('/')
+def index():
+    return jsonify({
+        "status": "success",
+        "message": "Welcome to the Car Price Prediction API"
+    })
+
+@app.route('/process_car', methods=['POST', 'GET'])
 def process_car():
+    if request.method == 'GET':
+        return jsonify({
+            "status": "error",
+            "message": "GET method not allowed. Please use POST."
+        }), 405
+
     try:
         data = request.json
         required_fields = ['Brand', 'Model', 'M-Year', 'KM-Driven', 'Mileage', 'Engine-Capacity', 'Seats', 'Fuel-Type', 'Transmission']
