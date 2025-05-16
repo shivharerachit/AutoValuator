@@ -1,8 +1,9 @@
-pandas
-joblib
+gunicorn
+sklearn
 flask
+flask-cors
+joblib
+pandas
 numpy
 matplotlib
 reportlab
-gunicorn
-flask-cors
