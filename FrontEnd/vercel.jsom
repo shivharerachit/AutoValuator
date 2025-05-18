@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/AutoValuator/:match*",
+      "destination": "/:match*"
+    }
+  ]
+}
