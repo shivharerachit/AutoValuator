@@ -1,0 +1,30 @@
+import datetime
+import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Loads variables from .env
+
+API_URL = os.getenv("HOSTED_API")
+
+def fetch_api_data():
+    current_time = datetime.datetime.now().time()
+
+    start_time = datetime.time(9, 0)
+    end_time = datetime.time(23, 0)
+
+    if start_time <= current_time < end_time:
+        try:
+            response = requests.get(API_URL)
+            if response.status_code == 200:
+                data = response.json()
+                print(f"[{datetime.datetime.now()}] API Response:", data)
+            else:
+                print(f"[{datetime.datetime.now()}] Error: {response.status_code} - {response.text}")
+        except Exception as e:
+            print(f"[{datetime.datetime.now()}] Exception occurred: {e}")
+    else:
+        print(f"[{datetime.datetime.now()}] Skipping call. Outside of allowed time window.")
+
+if __name__ == "__main__":
+    fetch_api_data()
