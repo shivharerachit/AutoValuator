@@ -14,7 +14,7 @@ def fetch_api_data():
     current_time = datetime.datetime.now().time()
 
     start_time = datetime.time(9, 0)
-    end_time = datetime.time(0, 0)
+    end_time = datetime.time(23, 59)
 
     if start_time <= current_time < end_time:
         try:
