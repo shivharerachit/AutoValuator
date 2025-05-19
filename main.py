@@ -8,10 +8,13 @@ load_dotenv()  # Loads variables from .env
 API_URL = os.getenv("HOSTED_API")
 
 def fetch_api_data():
+    if not API_URL:
+        print(f"[{datetime.datetime.now()}] Error: HOSTED_API is not set.")
+        exit(1)
     current_time = datetime.datetime.now().time()
 
     start_time = datetime.time(9, 0)
-    end_time = datetime.time(23, 0)
+    end_time = datetime.time(0, 0)
 
     if start_time <= current_time < end_time:
         try:

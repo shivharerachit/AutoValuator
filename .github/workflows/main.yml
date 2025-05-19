@@ -18,3 +18,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run script
         run: python main.py
+        env:
+          HOSTED_API: ${{ secrets.HOSTED_API }}
