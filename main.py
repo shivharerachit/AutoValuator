@@ -3,7 +3,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # Loads variables from .env
+load_dotenv()
 
 API_URL = os.getenv("HOSTED_API")
 
