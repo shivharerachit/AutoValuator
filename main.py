@@ -13,7 +13,7 @@ def fetch_api_data():
         print(f"[{datetime.datetime.now()}] Error: HOSTED_API is not set.")
         exit(1)
 
-    for i in range(8):
+    for i in range(10):
         try:
             response = requests.get(API_URL)
             if response.status_code == 200:
@@ -24,7 +24,7 @@ def fetch_api_data():
         except Exception as e:
             print(f"[{datetime.datetime.now()}] Exception occurred: {e}")
         if i < 7:  
-            time.sleep(7.5)
+            time.sleep(60)
 
     try:
         response = requests.get(API_URL)
