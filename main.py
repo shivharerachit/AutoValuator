@@ -11,23 +11,16 @@ def fetch_api_data():
     if not API_URL:
         print(f"[{datetime.datetime.now()}] Error: HOSTED_API is not set.")
         exit(1)
-    current_time = datetime.datetime.now().time()
 
-    start_time = datetime.time(9, 0)
-    end_time = datetime.time(23, 59)
-
-    if start_time <= current_time < end_time:
-        try:
-            response = requests.get(API_URL)
-            if response.status_code == 200:
-                data = response.json()
-                print(f"[{datetime.datetime.now()}] API Response:", data)
-            else:
-                print(f"[{datetime.datetime.now()}] Error: {response.status_code} - {response.text}")
-        except Exception as e:
-            print(f"[{datetime.datetime.now()}] Exception occurred: {e}")
-    else:
-        print(f"[{datetime.datetime.now()}] Skipping call. Outside of allowed time window.")
+    try:
+        response = requests.get(API_URL)
+        if response.status_code == 200:
+            data = response.json()
+            print(f"[{datetime.datetime.now()}] API Response:", data)
+        else:
+            print(f"[{datetime.datetime.now()}] Error: {response.status_code} - {response.text}")
+    except Exception as e:
+        print(f"[{datetime.datetime.now()}] Exception occurred: {e}")
 
 if __name__ == "__main__":
     fetch_api_data()

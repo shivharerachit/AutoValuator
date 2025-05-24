@@ -176,3 +176,9 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 .DS_Store
+
+ResearchPaper.pdf
+~$MinorFinalPPT.pptx
+~$SynopsisPPT.pptx
+PatentProform.pdf
+MinorImplementationVideo.mp4
