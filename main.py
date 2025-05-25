@@ -24,7 +24,7 @@ def fetch_api_data():
         except Exception as e:
             print(f"[{datetime.datetime.now()}] Exception occurred: {e}")
         if i < 7:  
-            time.sleep(60)
+            time.sleep(15)
 
     try:
         response = requests.get(API_URL)
