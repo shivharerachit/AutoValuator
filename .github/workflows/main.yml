@@ -1,7 +1,6 @@
 name: Scheduled API Fetch
 
 on:
-  push:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
@@ -14,19 +13,11 @@ jobs:
         run: |
           curl --silent -O https://raw.githubusercontent.com/${{ github.repository }}/main/main.py
           curl --silent -O https://raw.githubusercontent.com/${{ github.repository }}/main/requirements.txt
-          
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
     
       - name: Install dependencies and run script
         run: |
