@@ -13,8 +13,8 @@ jobs:
       # - uses: actions/checkout@v4
       - name: Download main.py only
         run: |
-          curl -O https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/main.py
-          curl -O https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/requirements.txt
+          curl -O https://raw.githubusercontent.com/${{ github.repository }}/main/main.py
+          curl -O https://raw.githubusercontent.com/${{ github.repository }}/main/requirements.txt
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
